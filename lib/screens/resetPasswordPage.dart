@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
 import 'loginPage.dart';
-
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -10,41 +10,28 @@ class ResetPassword extends StatefulWidget {
 }
 
 class _ResetPasswordState extends State<ResetPassword> {
-
-  Widget _buildEmailField(){
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 30,
-        bottom: 40,
-      ),
-      child: TextFormField(
-        style: const TextStyle(
-          fontSize: 20.0,
-          color: Colors.black,
+  Widget _buildEmailField() {
+    return TextFormField(
+      style: const TextStyle(fontSize: 20.0, color: Colors.white),
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: darkBlue,
+        hintText: 'example@gmail.com',
+        hintStyle: const TextStyle(color: Colors.grey),
+        contentPadding:
+            const EdgeInsets.only(left: 25.0, bottom: 10.0, top: 11.0),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(25.7),
         ),
-        decoration:  InputDecoration(
-          filled: true,
-          fillColor: const Color(0xFFAEDBDA),
-          hintText: 'example@gmail.com',
-          hintStyle:  const TextStyle(
-            color: Color(0xFF447574),
-          ),
-          contentPadding: const EdgeInsets.only(
-              left: 35.0, bottom: 18.0, top: 15.0),
-          focusedBorder: OutlineInputBorder(
-            borderSide:  const BorderSide(color: Colors.white),
-            borderRadius:  BorderRadius.circular(25.7),
-          ),
-          enabledBorder: UnderlineInputBorder(
-            borderSide:  const BorderSide(color: Colors.white),
-            borderRadius:  BorderRadius.circular(25.7),
-          ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(25.7),
         ),
-
-        // onSaved: (text){
-        //   _email = text!;
-        // },
-
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(25.7),
+        ),
       ),
     );
   }
@@ -53,18 +40,15 @@ class _ResetPasswordState extends State<ResetPassword> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-
         ElevatedButton(
-
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const MyLogin()),
             );
           },
-
           style: ElevatedButton.styleFrom(
-            primary: const Color(0xFF006E6C),
+            primary: yellow,
             padding: const EdgeInsets.only(
               right: 50,
               left: 50,
@@ -75,17 +59,14 @@ class _ResetPasswordState extends State<ResetPassword> {
               borderRadius: BorderRadius.circular(30.0),
             ),
           ),
-
           child: const Text(
-
             'Send',
             style: TextStyle(
-              color: Colors.white,
+              color: black,
               fontSize: 25.0,
               fontWeight: FontWeight.w400,
             ),
           ),
-
         ),
       ],
     );
@@ -94,28 +75,14 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          "Reset password",
-          style: TextStyle(
-            color: Color(0xFF006E6C),
-          ),
-        ),
-        elevation: 0,
-        iconTheme: const IconThemeData(
-          color: Color(0xFF006E6C),
-        ),
-      ),
+      backgroundColor: darkBlue,
       body: Padding(
         padding: const EdgeInsets.all(35),
         child: Column(
-          children:  [
+          children: [
             const Text(
               'Enter the email associated with your account. \n\n\n Email address',
-              style: TextStyle(
-                fontSize: 21,
-              ) ,
+              style: TextStyle(fontSize: 21, color: white),
             ),
             _buildEmailField(),
             _buildElevatedButtonField(),

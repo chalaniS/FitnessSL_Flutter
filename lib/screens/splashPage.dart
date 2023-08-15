@@ -12,7 +12,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -34,12 +33,15 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image(image: AssetImage("images/logo.png"), width: 320,),
+              Image(
+                image: AssetImage("images/logo.png"),
+                width: 320,
+              ),
               // SizedBox(
               //   height: 10,
               // ),
               SpinKitThreeInOut(
-                color: gray,
+                color: grey,
                 size: 40.0,
               )
             ],
