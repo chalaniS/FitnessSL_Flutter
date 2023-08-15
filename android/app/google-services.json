@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1088694809150",
+    "firebase_url": "https://fitnes-411fb-default-rtdb.firebaseio.com",
+    "project_id": "fitnes-411fb",
+    "storage_bucket": "fitnes-411fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088694809150:android:1f261a2445c4dc2ca9d76f",
+        "android_client_info": {
+          "package_name": "com.example.fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088694809150-k0dt4hlu7brkg6s4ncljqsunfm2hn9pu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWBUQh5Vfo8cD3nPEAzyVuBdF0pYAf47Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088694809150-k0dt4hlu7brkg6s4ncljqsunfm2hn9pu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1088694809150-86m57l7ch948964a4cj8ckhv7skssccj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fitness.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
