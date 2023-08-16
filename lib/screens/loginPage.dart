@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'home/home_screen.dart';
 import 'signUpPage.dart';
 import 'resetPasswordPage.dart';
-import 'colors.dart';
+import '../constants.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -170,8 +170,7 @@ class _MyLoginState extends State<MyLogin> {
                         _formKey.currentState?.save();
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen()),
+                          MaterialPageRoute(builder: (context) => HomePage()),
                         );
                       }
                     },

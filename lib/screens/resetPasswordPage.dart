@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'colors.dart';
+import '../constants.dart';
 import 'loginPage.dart';
 
 class ResetPassword extends StatefulWidget {

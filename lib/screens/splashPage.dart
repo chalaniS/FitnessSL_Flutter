@@ -1,4 +1,4 @@
-import 'package:fitness/screens/colors.dart';
+import 'package:fitness/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 5)).then((value) {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       Navigator.of(context).pushReplacement(
         CupertinoPageRoute(builder: (ctx) => const MyLogin()),
       );

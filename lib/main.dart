@@ -1,4 +1,4 @@
-import 'package:fitness/screens/colors.dart';
+import 'package:fitness/constants.dart';
 import 'package:fitness/screens/splashPage.dart';
 import 'package:flutter/material.dart';
 
@@ -14,10 +14,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner:
           false, //use for remove banner of debug on appbar
-      title: 'Flutter demo',
+      title: 'FitneesSL',
       theme: ThemeData(
         primaryColor: darkBlue,
         secondaryHeaderColor: darkBlue,
+        scaffoldBackgroundColor: darkBlue,
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: white),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const SplashScreen(),
     );
