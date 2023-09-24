@@ -16,5 +16,5 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
-IT21379956 Hettiarachchi V.E
-IT21378270 Wimaladharma T. H. Y. B.
+- IT21379956 Hettiarachchi V.E
+- IT21378270 Wimaladharma T. H. Y. B.
