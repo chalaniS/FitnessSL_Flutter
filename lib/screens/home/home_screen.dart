@@ -7,9 +7,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: darkBlue),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        padding: EdgeInsets.only(
+          top: 80,
+          left: 15,
+          right: 15,
+        ),
         child: SingleChildScrollView(
           child: Column(
             children: [

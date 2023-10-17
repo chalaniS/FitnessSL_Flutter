@@ -1,17 +1,23 @@
+import 'package:fitness/screens/User/profile_page.dart';
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import '../constants.dart'; // Import your profile page
 
 class MyBottomNavBar extends StatelessWidget {
+  const MyBottomNavBar({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: darkBlue, // Set the background color to dark blue
+      backgroundColor: Color.fromARGB(
+          0, 69, 8, 8), // Set the background color to transparent
       items: const [
         BottomNavigationBarItem(
           icon: Icon(
             Icons.home,
-            color: yellow,
+            color: darkBlue,
             size: 30,
           ),
           label: 'Home',
@@ -19,32 +25,38 @@ class MyBottomNavBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.calendar_today,
-            color: yellow,
+            color: darkBlue,
             size: 30,
           ),
           label: 'Calendar',
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.person,
-            color: yellow,
-            size: 30,
-          ),
-          label: 'Profiles',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
             Icons.analytics,
-            color: yellow,
+            color: darkBlue,
             size: 30,
           ),
           label: 'Analytics',
         ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.person,
+            color: darkBlue,
+            size: 30,
+          ),
+          label: 'Profiles',
+        ),
       ],
+      onTap: (int index) {
+        if (index == 3) {
+          // Check if the profile icon was tapped
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => Profile(), // Navigate to your profile page
+            ),
+          );
+        }
+      },
     );
   }
 }
-
-// // Define your dark blue color and yellow color
-// const darkBlue = Color(0xFF123456);
-// const yellow = Colors.yellow;
