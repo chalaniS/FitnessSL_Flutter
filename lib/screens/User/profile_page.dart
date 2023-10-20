@@ -261,7 +261,7 @@ class _ProfileState extends State<Profile> {
                               return Text(
                                 '${snapshot.data}',
                                 style: const TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 26,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
                                 ),
@@ -293,7 +293,7 @@ class _ProfileState extends State<Profile> {
                           "65kg",
                           style: TextStyle(
                             color: Colors.yellow,
-                            fontSize: 30,
+                            fontSize: 26,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -325,7 +325,7 @@ class _ProfileState extends State<Profile> {
                           "160cm",
                           style: TextStyle(
                             color: Colors.yellow,
-                            fontSize: 30,
+                            fontSize: 26,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
