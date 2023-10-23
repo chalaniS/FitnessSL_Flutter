@@ -1,5 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness/constants.dart';
+import 'package:fitness/screens/EventManagement/Admin/add_events.dart';
+import 'package:fitness/screens/EventManagement/Admin/edit_event.dart';
+import 'package:fitness/screens/EventManagement/Admin/event_list.dart';
+import 'package:fitness/screens/home/home_screen.dart';
 import 'package:fitness/screens/splashPage.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +39,13 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(bodyColor: white),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const SplashScreen(),
+      //home: HomePage(),
+      home: AddEventForm(),
+      //home: EditEventForm(
+      //  eventId: '',
+      //),
+
+      //home: EventList(),
     );
   }
 }
