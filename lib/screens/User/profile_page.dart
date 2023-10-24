@@ -293,7 +293,7 @@ class _ProfileState extends State<Profile> {
                           "65kg",
                           style: TextStyle(
                             color: Colors.yellow,
-                            fontSize: 26,
+                            fontSize: 23,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -301,7 +301,7 @@ class _ProfileState extends State<Profile> {
                           "Weight",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 26,
+                            fontSize: 23,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -325,7 +325,7 @@ class _ProfileState extends State<Profile> {
                           "160cm",
                           style: TextStyle(
                             color: Colors.yellow,
-                            fontSize: 26,
+                            fontSize: 23,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -333,7 +333,7 @@ class _ProfileState extends State<Profile> {
                           "Height",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 26,
+                            fontSize: 23,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -357,7 +357,7 @@ class _ProfileState extends State<Profile> {
                           "20yo",
                           style: TextStyle(
                             color: Colors.yellow,
-                            fontSize: 30,
+                            fontSize: 23,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -365,7 +365,7 @@ class _ProfileState extends State<Profile> {
                           "Age",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 26,
+                            fontSize: 23,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -382,7 +382,7 @@ class _ProfileState extends State<Profile> {
                   style: ElevatedButton.styleFrom(
                     primary: const Color.fromARGB(255, 255, 17, 0),
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 45,
+                      horizontal: 35,
                       vertical: 15,
                     ),
                     shape: RoundedRectangleBorder(
