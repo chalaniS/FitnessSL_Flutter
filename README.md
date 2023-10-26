@@ -1,21 +1,11 @@
-# fitness
+## FitnessSL 
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This is our UEE Project in 3rd Year 1st Semester.
 
 - IT21377280 Rajapaksha C. S.
 - IT21379956 Hettiarachchi V.E
 - IT21378270 Wimaladharma T. H. Y. B.
 - IT21377358 Hanshani S.G.H.S.
+
+![Untitled-2](https://github.com/chalaniS/FitnessSL_Flutter/assets/99180967/167f44cf-8706-4167-a61f-ad2f468555a1)
+
