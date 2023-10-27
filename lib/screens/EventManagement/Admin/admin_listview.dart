@@ -1,3 +1,4 @@
+import 'package:fitness/screens/EventManagement/Admin/edit_event.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:fitness/screens/EventManagement/Admin/add_events.dart';
@@ -141,8 +142,14 @@ class _EventListViewState extends State<EventListView> {
                           ElevatedButton(
                             //icon: const Icon(Icons.edit),
                             onPressed: () {
-                              // Handle update event action
-                              // You can navigate to an edit page or show a dialog for editing.
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const EditEventForm(
+                                    eventKey: '',
+                                  ),
+                                ),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color.fromARGB(255, 200,

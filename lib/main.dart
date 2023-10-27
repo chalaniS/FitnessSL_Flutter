@@ -3,6 +3,8 @@ import 'package:fitness/constants.dart';
 import 'package:fitness/screens/EventManagement/Admin/add_events.dart';
 import 'package:fitness/screens/EventManagement/Admin/admin_home.dart';
 import 'package:fitness/screens/EventManagement/Admin/admin_listview.dart';
+import 'package:fitness/screens/EventManagement/Admin/edit_event.dart';
+import 'package:fitness/screens/EventManagement/User/user_event_detail_page.dart';
 import 'package:fitness/screens/EventManagement/User/user_event_list.dart';
 //import 'package:fitness/screens/EventManagement/Admin/event_list.dart';
 import 'package:fitness/screens/home/home_screen.dart';
@@ -43,9 +45,14 @@ class MyApp extends StatelessWidget {
       ),
       //home: HomePage(),
       //home: const AddEventForm(),
-      home: AdminHomepage(),
-      //home: EventListView(), //admin side
-      //home: UserEventListView(), // user side
+      //home: AdminHomepage(),
+      // home: EditEventForm(
+      //   eventKey: '',
+      // ), //admin side
+      home: UserEventListView(), // user side
+      // home: EventDetailPage(
+      //   eventData: const {},
+      // ),
     );
   }
 }
