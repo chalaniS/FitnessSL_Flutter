@@ -1,3 +1,4 @@
+import 'package:fitness/screens/EventManagement/Admin/admin_listview.dart';
 import 'package:flutter/material.dart';
 
 class AdminHomepage extends StatelessWidget {
@@ -33,6 +34,12 @@ class AdminHomepage extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventListView(),
+                      ),
+                    );
                     // Handle the action for the button.
                   },
                   style: ElevatedButton.styleFrom(
@@ -77,8 +84,9 @@ class AdminHomepage extends StatelessWidget {
                     primary: const Color.fromARGB(255, 255, 191,
                         53), // Set the background color for button
                     onPrimary: Colors.black, // Set the text color
-                    minimumSize:
-                        const Size(200, 50), //Set width and height of btn
+                    // minimumSize:
+                    //     const Size(200, 50), //Set width and height of btn
+                    minimumSize: const Size(200, 50),
                   ),
                   child: const Text(
                     'Message',

@@ -1,6 +1,7 @@
 //completely complete
 //
 import 'package:firebase_database/firebase_database.dart';
+import 'package:fitness/screens/EventManagement/Admin/admin_listview.dart';
 import 'package:flutter/material.dart';
 
 class AddEventForm extends StatefulWidget {
@@ -67,7 +68,7 @@ class _AddEventFormState extends State<AddEventForm> {
               Navigator.pop(context);
             },
           ),
-          backgroundColor: const Color.fromARGB(255, 14, 7, 73),
+          backgroundColor: const Color.fromARGB(255, 7, 16, 68),
           elevation: 0,
         ),
       ),
@@ -158,11 +159,22 @@ class _AddEventFormState extends State<AddEventForm> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: _submitEvent,
+                    // onPressed: _submitEvent,
+                    onPressed: () {
+                      _submitEvent(); // Call your submit function
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              EventListView(), // Navigate to EventListView
+                        ),
+                      );
+                    },
+
                     style: ElevatedButton.styleFrom(
                       primary: Colors.orange,
                       fixedSize: const Size(200, 40),
                     ),
+
                     child: const Text(
                       'Submit',
                       style: TextStyle(
