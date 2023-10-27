@@ -71,7 +71,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
       ],
       onTap: (int index) {
-        if (index == 1) {
+        if (index == 0) {
+          // Check if the profile icon was tapped
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => HomePage(), // Navigate to your profile page
+            ),
+          );
+        } else if (index == 1) {
           // Check if the profile icon was tapped
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -79,19 +86,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   WorkoutHomePage(), // Navigate to your profile page
             ),
           );
-        } else if (index == 0) {
-          // Check if the profile icon was tapped
+        } else if (index == 2) {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => HomePage(), // Navigate to your profile page
-<<<<<<< HEAD
-            ),
-          );
-        } else if (index == 0) {
-          // Check if the profile icon was tapped
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => HomePage(), // Navigate to your profile page
+              builder: (context) => GymMap(), // Navigate to your profile page
             ),
           );
         } else if (index == 4) {
@@ -99,14 +97,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => Profile(), // Navigate to your profile page
-=======
->>>>>>> origin/shashini
-            ),
-          );
-        } else if (index == 2) {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => GymMap(), // Navigate to your profile page
             ),
           );
         }

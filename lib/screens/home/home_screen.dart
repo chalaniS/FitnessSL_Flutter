@@ -26,11 +26,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-<<<<<<< HEAD
       bottomNavigationBar: const BottomNavBar(),
-=======
-      bottomNavigationBar: BottomNavBar(),
->>>>>>> origin/shashini
     );
   }
 }
