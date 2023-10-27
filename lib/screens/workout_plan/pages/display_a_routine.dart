@@ -78,88 +78,112 @@ class _DisplayRoutineState extends State<DisplayRoutine> {
           ),
         ),
       ),
-      body: ListView.builder(
-        itemCount: exercises.length,
-        itemBuilder: (context, index) {
-          final exercise = exercises[index];
-          return GestureDetector(
-            onTap: () {
-              print('Tapped container at index: $index');
-              // Navigate to the edit workout page here
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    // Replace 'EditWorkoutPage' with the actual name of your edit workout page
-                    return EditWorkout(
-                        routineId: widget.routineId, exerciseIndex: index);
-                  },
+      body: Container(
+        child: ListView.builder(
+          itemCount: exercises.length,
+          itemBuilder: (context, index) {
+            final exercise = exercises[index];
+            return GestureDetector(
+              onTap: () {
+                print('Tapped container at index: $index');
+                // Navigate to the edit workout page here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      // Replace 'EditWorkoutPage' with the actual name of your edit workout page
+                      return EditWorkout(
+                          routineId: widget.routineId, exerciseIndex: index);
+                    },
+                  ),
+                );
+              },
+              child: Container(
+                width: 300, // Set the width to your desired fixed width
+                height: 140, // Set the height to your desired fixed height
+                margin:
+                    EdgeInsets.all(5), // Set a fixed margin of 20 for all sides
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: const Color.fromARGB(255, 210, 204, 204),
+                    width: 2,
+                  ),
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(12),
                 ),
-              );
-            },
-            child: Container(
-              width: 300, // Set the width to your desired fixed width
-              height: 180, // Set the height to your desired fixed height
-              margin:
-                  EdgeInsets.all(10), // Set a fixed margin of 20 for all sides
-              padding: EdgeInsets.all(16.0),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: const Color.fromARGB(255, 210, 204, 204),
-                  width: 2,
-                ),
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start, // Align text to the left
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '${exercise.name}',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20, // Increase the font size
+                child: Column(
+                  crossAxisAlignment:
+                      CrossAxisAlignment.start, // Align text to the left
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '${exercise.name}',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18, // Increase the font size
+                          ),
                         ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TimerPage(
+                                  index: index,
+                                  name: exercise.name,
+                                  time: exercise.time,
+                                  exerciseList : exercises,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Icon(
+                            Icons
+                                .play_circle_fill_outlined, // Add your desired icon
+                            color:
+                                Colors.white, // Change the icon color as needed
+                          ),
+                        ),
+                        Icon(
+                          Icons.edit, // Add your desired icon
+                          color:
+                              Colors.white, // Change the icon color as needed
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Sets: ${exercise.sets}',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18, // Increase the font size
                       ),
-                      Icon(
-                        Icons.edit, // Add your desired icon
-                        color: Colors.white, // Change the icon color as needed
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Reps: ${exercise.reps}',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18, // Increase the font size
                       ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Sets: ${exercise.sets}',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20, // Increase the font size
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Reps: ${exercise.reps}',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20, // Increase the font size
+                    SizedBox(height: 5),
+                    Text(
+                      'Time: ${exercise.time}',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18, // Increase the font size
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Time: ${exercise.time}',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20, // Increase the font size
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
       bottomNavigationBar: BottomAppBar(),
     );

@@ -233,9 +233,9 @@ class _WorkoutHomePageState extends State<WorkoutHomePage> {
             shape: BoxShape.circle,
             gradient: LinearGradient(
               colors: [
-                HexColor("ED6184"),
-                HexColor("EF315B"),
-                HexColor("E2042D"),
+                Color(0xFFEDBB46), // Dark Yellow
+                Color(0xFFE49E2D), // Slightly lighter yellow
+                Color(0xFFD99D1C), // Even lighter yellow
               ],
               begin: const FractionalOffset(0.0, 0.0),
               end: const FractionalOffset(0.0, 1.0),
