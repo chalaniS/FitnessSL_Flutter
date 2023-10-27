@@ -6,6 +6,7 @@ import 'package:fitness/screens/workout_plan/pages/workout_plan_page.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import '../screens/company/companies_page.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/places/map.dart';
 
@@ -89,7 +90,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
         } else if (index == 2) {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => GymMap(), // Navigate to your profile page
+              builder: (context) =>
+                  CompaniesPage(), // Navigate to your profile page
             ),
           );
         } else if (index == 4) {
