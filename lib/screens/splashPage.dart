@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'User/loginPage.dart';
+import 'User/userTypePage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(const Duration(seconds: 3)).then((value) {
       Navigator.of(context).pushReplacement(
-        CupertinoPageRoute(builder: (ctx) => const MyLogin()),
+        CupertinoPageRoute(builder: (ctx) => const UserTypeSelection()),
       );
     });
   }
