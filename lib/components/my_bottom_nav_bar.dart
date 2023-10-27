@@ -90,11 +90,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
           );
         } else if (index == 2) {
           // Check if the profile icon was tapped
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => GymMap(), // Navigate to your profile page
-            ),
-          );
+          // Navigator.of(context).push(
+          //   MaterialPageRoute(
+          //     builder: (context) => GymMap(), // Navigate to your profile page
+          //   ),
+          // );
         }
       },
     );
