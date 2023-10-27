@@ -53,7 +53,11 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+<<<<<<< HEAD
         multiDexEnabled true
+=======
+         multiDexEnabled true
+>>>>>>> origin/shashini
     }
 
     buildTypes {

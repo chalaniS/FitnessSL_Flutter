@@ -1,4 +1,8 @@
 import 'package:fitness/screens/User/profile_page.dart';
+import 'package:fitness/screens/home/home_screen.dart';
+import 'package:fitness/screens/workout_plan/pages/create_routine.dart';
+import 'package:fitness/screens/workout_plan/pages/workout_home_page.dart';
+import 'package:fitness/screens/workout_plan/pages/workout_plan_page.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -67,11 +71,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
       ],
       onTap: (int index) {
-        if (index == 3) {
+        if (index == 1) {
+          // Check if the profile icon was tapped
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) =>
+                  WorkoutHomePage(), // Navigate to your profile page
+            ),
+          );
+        } else if (index == 0) {
           // Check if the profile icon was tapped
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => HomePage(), // Navigate to your profile page
+<<<<<<< HEAD
             ),
           );
         } else if (index == 0) {
@@ -86,6 +99,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => Profile(), // Navigate to your profile page
+=======
+>>>>>>> origin/shashini
             ),
           );
         } else if (index == 2) {
