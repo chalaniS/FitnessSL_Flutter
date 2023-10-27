@@ -90,7 +90,7 @@ class _TimerPageState extends State<TimerPage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text("OK",
+              child: Text("Track Progress",
                   style: TextStyle(
                     color: Color.fromARGB(
                         255, 227, 189, 1), // Set the button color to yellow
@@ -100,7 +100,7 @@ class _TimerPageState extends State<TimerPage> {
                 Navigator.of(context).pop(); // Close the dialog
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => WorkoutHomePage()),
+                  MaterialPageRoute(builder: (context) => Progresspage()),
                 );
               },
             ),
@@ -128,14 +128,8 @@ class _TimerPageState extends State<TimerPage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => DisplayRoutine(
-                  routineId: 'routineId',
-                ),
-              ),
-            );
+            Navigator.pop(
+                context); // Go back to the previous page (DisplayRoutine)
           },
         ),
         title: Text(
@@ -153,7 +147,15 @@ class _TimerPageState extends State<TimerPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Get Ready For ${getNextExerciseName()}',
+                'Get Ready For ',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 167, 160, 160),
+                  fontSize: 26,
+                ),
+              ),
+              Text(
+                '${getNextExerciseName()}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,

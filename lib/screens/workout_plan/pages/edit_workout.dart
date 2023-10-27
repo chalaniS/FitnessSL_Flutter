@@ -178,13 +178,25 @@ class _EditWorkoutState extends State<EditWorkout> {
                 SizedBox(
                   height: 40,
                 ),
-                Text(
-                  'Exercise Name : ${nameController.text}',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
+                Container(
+                  height: 52,
+                  margin:
+                      EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
+                  padding: EdgeInsets.only(left: 14),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.transparent, width: 1.0),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    ' Exercise : ${nameController.text}',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Color.fromARGB(255, 227, 189, 1),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
+
                 // TextField(
                 //   controller: nameController,
                 //   decoration: InputDecoration(
@@ -195,84 +207,113 @@ class _EditWorkoutState extends State<EditWorkout> {
                 //     color: Colors.white,
                 //   ),
                 // ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'No.of sets : ',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: setsController,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          hintText: '3',
-                        ),
+
+                Container(
+                  height: 52,
+                  margin:
+                      EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
+                  padding: EdgeInsets.only(left: 14),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white, width: 1.0),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'No.of Sets  :       ',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'No.of reps : ',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: repsController,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          hintText: '12',
+                      Expanded(
+                        child: TextField(
+                          controller: setsController,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            hintText: '12',
+                          ),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 52,
+                  margin:
+                      EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
+                  padding: EdgeInsets.only(left: 14),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white, width: 1.0),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'No.of reps  :      ',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Time : ',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: timeController,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          hintText: '20',
+                      Expanded(
+                        child: TextField(
+                          controller: repsController,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            hintText: '12',
+                          ),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 52,
+                  margin:
+                      EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
+                  padding: EdgeInsets.only(left: 14),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white, width: 1.0),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Time           :',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                         ),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: 40,
+                      ),
+                      Expanded(
+                        child: TextField(
+                          controller: timeController,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            hintText: '20',
+                          ),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+
                 SizedBox(height: 170),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -79,6 +79,7 @@ class _DisplayRoutineState extends State<DisplayRoutine> {
         ),
       ),
       body: Container(
+        margin: EdgeInsets.all(20),
         child: ListView.builder(
           itemCount: exercises.length,
           itemBuilder: (context, index) {
@@ -100,13 +101,13 @@ class _DisplayRoutineState extends State<DisplayRoutine> {
               },
               child: Container(
                 width: 300, // Set the width to your desired fixed width
-                height: 140, // Set the height to your desired fixed height
+                height: 160, // Set the height to your desired fixed height
                 margin:
                     EdgeInsets.all(5), // Set a fixed margin of 20 for all sides
                 padding: EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: const Color.fromARGB(255, 210, 204, 204),
+                    color: Color.fromARGB(255, 227, 189, 1),
                     width: 2,
                   ),
                   color: Colors.transparent,
@@ -122,9 +123,11 @@ class _DisplayRoutineState extends State<DisplayRoutine> {
                         Text(
                           '${exercise.name}',
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18, // Increase the font size
-                          ),
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight:
+                                  FontWeight.bold // Increase the font size
+                              ),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -135,16 +138,15 @@ class _DisplayRoutineState extends State<DisplayRoutine> {
                                   index: index,
                                   name: exercise.name,
                                   time: exercise.time,
-                                  exerciseList : exercises,
+                                  exerciseList: exercises,
                                 ),
                               ),
                             );
                           },
                           child: Icon(
-                            Icons
-                                .play_circle_fill_outlined, // Add your desired icon
-                            color:
-                                Colors.white, // Change the icon color as needed
+                            Icons.play_circle_outline, // Add your desired icon
+                            color: Color.fromARGB(255, 227, 189,
+                                1), // Change the icon color as needed
                           ),
                         ),
                         Icon(
@@ -155,8 +157,11 @@ class _DisplayRoutineState extends State<DisplayRoutine> {
                       ],
                     ),
                     SizedBox(height: 5),
+                    Divider(
+                        thickness: 1.5,
+                        color: Color.fromARGB(255, 227, 189, 1)),
                     Text(
-                      'Sets: ${exercise.sets}',
+                      'No.of Sets  : ${exercise.sets}',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18, // Increase the font size
@@ -164,7 +169,7 @@ class _DisplayRoutineState extends State<DisplayRoutine> {
                     ),
                     SizedBox(height: 5),
                     Text(
-                      'Reps: ${exercise.reps}',
+                      'No.of Reps : ${exercise.reps}',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18, // Increase the font size
@@ -172,7 +177,7 @@ class _DisplayRoutineState extends State<DisplayRoutine> {
                     ),
                     SizedBox(height: 5),
                     Text(
-                      'Time: ${exercise.time}',
+                      'Time spent : ${exercise.time}',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18, // Increase the font size
