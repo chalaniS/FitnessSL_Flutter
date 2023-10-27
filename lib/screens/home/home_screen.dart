@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           top: 80,
           left: 15,
           right: 15,
@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }
@@ -44,7 +44,7 @@ class _newWorkoutscroller extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 15), // Add spacing between text and images
+        const SizedBox(height: 15), // Add spacing between text and images
         SizedBox(
           height: 150, // Adjust the height as needed
           child: ListView.builder(
@@ -52,7 +52,7 @@ class _newWorkoutscroller extends StatelessWidget {
             itemCount: imageUrls.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                     horizontal: 5), // Add some spacing between images
                 child: Stack(
                   children: [
@@ -87,7 +87,7 @@ class _newWorkoutscroller extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       top: 10,
                       right: 10,
                       child: Icon(
@@ -113,11 +113,12 @@ class _workoutseeall extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("Workout Categories",
+        const Text("Workout Categories",
             style: TextStyle(color: white, fontSize: 20)),
         TextButton(
           onPressed: () {},
-          child: Text("See all", style: TextStyle(color: yellow, fontSize: 18)),
+          child: const Text("See all",
+              style: TextStyle(color: yellow, fontSize: 18)),
         ),
       ],
     );
@@ -131,9 +132,9 @@ class _searchbar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 15),
       child: TextFormField(
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.search, size: 30, color: Colors.black),
+          prefixIcon: const Icon(Icons.search, size: 30, color: Colors.black),
           hintText: 'Search...',
-          hintStyle: TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.white),
           filled: true,
           fillColor: Colors.grey[800],
           enabledBorder: OutlineInputBorder(
@@ -156,7 +157,7 @@ class _header extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        const Text(
           "Discover How \nTo Shape The \nBody",
           style: TextStyle(
             fontSize: 28,
@@ -165,7 +166,7 @@ class _header extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.notifications,
             size: 50,
             color: Colors.white,
@@ -184,7 +185,7 @@ class _filterButtons extends StatelessWidget {
       children: [
         ElevatedButton(
           onPressed: () {},
-          child: Text(
+          child: const Text(
             'Beginner',
             style: TextStyle(
               color: Colors.black,
@@ -207,7 +208,8 @@ class _filterButtons extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {},
-          child: Text('Intermediate', style: TextStyle(color: Colors.black)),
+          child:
+              const Text('Intermediate', style: TextStyle(color: Colors.black)),
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
@@ -224,7 +226,7 @@ class _filterButtons extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {},
-          child: Text('Advanced', style: TextStyle(color: Colors.black)),
+          child: const Text('Advanced', style: TextStyle(color: Colors.black)),
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
@@ -257,8 +259,8 @@ class _imageScroller extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("New Workouts "),
-        SizedBox(height: 15), // Add spacing between text and images
+        const Text("New Workouts "),
+        const SizedBox(height: 15), // Add spacing between text and images
         SizedBox(
           height: 150, // Adjust the height as needed
           child: ListView.builder(
@@ -266,7 +268,7 @@ class _imageScroller extends StatelessWidget {
             itemCount: imageUrls.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                     horizontal: 5), // Add some spacing between images
                 child: Stack(
                   children: [
@@ -301,7 +303,7 @@ class _imageScroller extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       top: 10,
                       right: 10,
                       child: Icon(

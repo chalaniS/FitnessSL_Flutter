@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const String google_api_key = "AIzaSyDcrCvVdhcMIPmnXVL_0Ltt7d7bU1s9DK8";
+
 const Color darkBlue = Color(0xFF020F3A); // Dark blue gray color
 const Color grey =
     Color.fromARGB(255, 149, 148, 148); // Darker shade of primary color

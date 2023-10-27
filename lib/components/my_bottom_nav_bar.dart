@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 import '../screens/home/home_screen.dart';
+import '../screens/places/map.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -85,6 +86,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => Profile(), // Navigate to your profile page
+            ),
+          );
+        } else if (index == 2) {
+          // Check if the profile icon was tapped
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => GymMap(), // Navigate to your profile page
             ),
           );
         }
