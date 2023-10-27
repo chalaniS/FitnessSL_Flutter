@@ -2,15 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class GymMap extends StatelessWidget {
-  final String latitude;
-  final String longitude;
-
-  GymMap({required this.latitude, required this.longitude});
+  final LatLng gymLocation = LatLng(7.293736697003451, 80.64131426545106);
 
   @override
   Widget build(BuildContext context) {
-    final gymLocation = LatLng(latitude as double, longitude as double);
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Gym Location"),
