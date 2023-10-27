@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../components/my_bottom_nav_bar.dart';
 import '../../constants.dart';
 import '../home/home_screen.dart';
 import '../places/map.dart';
+import 'companies_page.dart';
 
 class CompanyDetailsPage extends StatefulWidget {
   final String companyId;
@@ -10,6 +12,7 @@ class CompanyDetailsPage extends StatefulWidget {
   final String companyEmail;
   final String companyAddress;
   final String companyPhone;
+
   const CompanyDetailsPage({
     super.key,
     required this.companyId,
@@ -17,6 +20,8 @@ class CompanyDetailsPage extends StatefulWidget {
     required this.companyEmail,
     required this.companyAddress,
     required this.companyPhone,
+    required locationX,
+    required locationY,
   });
 
   @override
@@ -48,7 +53,8 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HomePage(), // navigate to all gym page
+                builder: (context) =>
+                    CompaniesPage(), // navigate to all gym page
               ),
             );
           },
@@ -170,10 +176,14 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
                 // location button
                 GestureDetector(
                   onTap: () {
+                    String y = widget.companyEmail;
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => GymMap(),
+                        builder: (context) => GymMap(
+                          latitude: 7.293736697003451,
+                          longitude: 80.64131426545106,
+                        ),
                       ),
                     );
                   },
@@ -226,6 +236,7 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
           ],
         ),
       ),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }

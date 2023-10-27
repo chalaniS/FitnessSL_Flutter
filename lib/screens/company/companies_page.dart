@@ -115,6 +115,8 @@ class _CompaniesPageState extends State<CompaniesPage> {
               companyEmail: data['c_email'],
               companyAddress: data['c_address'],
               companyPhone: data['c_contactNo'],
+              locationX: data['c_locationX'],
+              locationY: data['c_locationY'],
             ),
           ),
         );
