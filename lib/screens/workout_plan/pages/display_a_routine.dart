@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fitness/constants.dart';
 import 'package:fitness/screens/workout_plan/pages/create_routine.dart';
 import 'package:fitness/screens/workout_plan/pages/edit_workout.dart';
@@ -7,13 +8,54 @@ import 'package:flutter/material.dart';
 import 'package:fitness/screens/workout_plan/widget/input_field.dart';
 
 class DisplayRoutine extends StatefulWidget {
-  const DisplayRoutine({Key? key, required String routineId}) : super(key: key);
+  final String routineId;
+
+  const DisplayRoutine({Key? key, required this.routineId}) : super(key: key);
 
   @override
   State<DisplayRoutine> createState() => _DisplayRoutineState();
 }
 
 class _DisplayRoutineState extends State<DisplayRoutine> {
+  String routineName = '';
+  List<Exercise> exercises = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Fetch routine details when the widget is initialized
+    fetchRoutineDetails();
+  }
+
+  void fetchRoutineDetails() {
+    final CollectionReference routineCollection =
+        FirebaseFirestore.instance.collection('routines');
+
+    // Use the provided routineId to get the specific routine
+    routineCollection.doc(widget.routineId).get().then((DocumentSnapshot doc) {
+      if (doc.exists) {
+        final data = doc.data() as Map<String, dynamic>;
+        // Get routine details from the document
+        setState(() {
+          routineName = data['routineName'];
+          exercises = (data['exercises'] as List<dynamic>)
+              .map((exercise) => Exercise(
+                    name: exercise['exercise name'],
+                    sets: exercise['sets'],
+                    reps: exercise['reps'],
+                    time: exercise['time'],
+                  ))
+              .toList();
+        });
+      } else {
+        // Handle the case where the document with the given ID doesn't exist
+        print('Routine with ID ${widget.routineId} does not exist.');
+      }
+    }).catchError((error) {
+      print('Error fetching routine details: $error');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,72 +71,95 @@ class _DisplayRoutineState extends State<DisplayRoutine> {
           },
         ),
         title: Text(
-          'Display Routine',
+          'Routine : $routineName',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
-      body: GestureDetector(
-        onTap: () {
-          // Navigate to the edit workout page here
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                // Replace 'EditWorkoutPage' with the actual name of your edit workout page
-                return EditWorkout();
-              },
+      body: ListView.builder(
+        itemCount: exercises.length,
+        itemBuilder: (context, index) {
+          final exercise = exercises[index];
+          return GestureDetector(
+            onTap: () {
+              print('Tapped container at index: $index');
+              // Navigate to the edit workout page here
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    // Replace 'EditWorkoutPage' with the actual name of your edit workout page
+                    return EditWorkout(
+                        routineId: widget.routineId, exerciseIndex: index);
+                  },
+                ),
+              );
+            },
+            child: Container(
+              width: 300, // Set the width to your desired fixed width
+              height: 180, // Set the height to your desired fixed height
+              margin:
+                  EdgeInsets.all(10), // Set a fixed margin of 20 for all sides
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: const Color.fromARGB(255, 210, 204, 204),
+                  width: 2,
+                ),
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                crossAxisAlignment:
+                    CrossAxisAlignment.start, // Align text to the left
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '${exercise.name}',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20, // Increase the font size
+                        ),
+                      ),
+                      Icon(
+                        Icons.edit, // Add your desired icon
+                        color: Colors.white, // Change the icon color as needed
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Sets: ${exercise.sets}',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20, // Increase the font size
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Reps: ${exercise.reps}',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20, // Increase the font size
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Time: ${exercise.time}',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20, // Increase the font size
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
-        child: Container(
-          padding: const EdgeInsets.all(16.0),
-          child: Container(
-            width: double.infinity,
-            height: 130,
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                  color: const Color.fromARGB(255, 210, 204, 204), width: 2),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Exercise Name',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                        Divider(
-                          thickness: 1.5,
-                          color: Colors.grey.shade200,
-                        ),
-                        Row(
-                          children: [
-                            Text('sets'),
-                            Text('reps'),
-                            Text('time'),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
       ),
       bottomNavigationBar: BottomAppBar(),
     );
