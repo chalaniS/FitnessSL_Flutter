@@ -111,12 +111,11 @@ class _CreateRoutineState extends State<CreateRoutine> {
           ),
         ),
       ),
-      body: Form(
-        key: _formKey, // Associate the _formKey with the Form widget
-        child: Container(
-          margin: EdgeInsets.all(15),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey, // Associate the _formKey with the Form widget
+          child: Container(
+            margin: EdgeInsets.all(15),
             child: Column(
               children: [
                 SizedBox(

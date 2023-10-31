@@ -100,7 +100,7 @@ class _EditWorkoutState extends State<EditWorkout> {
                 'exercises': exercises,
               }).then((value) {
                 print('Exercise details updated successfully.');
-                //Navigator.pop(context, true);
+                Navigator.pop(context, true);
                 // You can add a snackbar or navigate back to the previous screen
               }).catchError((error) {
                 print('Error updating exercise details: $error');
@@ -110,12 +110,6 @@ class _EditWorkoutState extends State<EditWorkout> {
         }
       }
     });
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => WorkoutHomePage(),
-      ),
-    );
   }
 
   void deleteExercise() {
@@ -138,7 +132,7 @@ class _EditWorkoutState extends State<EditWorkout> {
               'exercises': exercises,
             }).then((value) {
               print('Exercise deleted successfully.');
-              //Navigator.pop(context, true);
+              Navigator.pop(context, true);
               // You can add a snackbar or navigate back to the previous screen
             }).catchError((error) {
               print('Error deleting exercise: $error');
@@ -147,12 +141,6 @@ class _EditWorkoutState extends State<EditWorkout> {
         }
       }
     });
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => WorkoutHomePage(),
-      ),
-    );
   }
 
   @override
@@ -168,204 +156,206 @@ class _EditWorkoutState extends State<EditWorkout> {
           ),
         ),
       ),
-      body: Center(
-        child: Container(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 40,
-                ),
-                Container(
-                  height: 52,
-                  margin:
-                      EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
-                  padding: EdgeInsets.only(left: 14),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.transparent, width: 1.0),
-                    borderRadius: BorderRadius.circular(12),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 40,
                   ),
-                  child: Text(
-                    ' Exercise : ${nameController.text}',
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Color.fromARGB(255, 227, 189, 1),
-                      fontWeight: FontWeight.bold,
+                  Container(
+                    height: 52,
+                    margin:
+                        EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
+                    padding: EdgeInsets.only(left: 14),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.transparent, width: 1.0),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Text(
+                      ' Exercise : ${nameController.text}',
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Color.fromARGB(255, 227, 189, 1),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
 
-                // TextField(
-                //   controller: nameController,
-                //   decoration: InputDecoration(
-                //     hintText: 'Enter exercise name',
-                //   ),
-                //   style: TextStyle(
-                //     fontSize: 18,
-                //     color: Colors.white,
-                //   ),
-                // ),
+                  // TextField(
+                  //   controller: nameController,
+                  //   decoration: InputDecoration(
+                  //     hintText: 'Enter exercise name',
+                  //   ),
+                  //   style: TextStyle(
+                  //     fontSize: 18,
+                  //     color: Colors.white,
+                  //   ),
+                  // ),
 
-                Container(
-                  height: 52,
-                  margin:
-                      EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
-                  padding: EdgeInsets.only(left: 14),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 1.0),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        'No.of Sets  :       ',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Expanded(
-                        child: TextField(
-                          controller: setsController,
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                            hintText: '12',
-                          ),
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 52,
-                  margin:
-                      EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
-                  padding: EdgeInsets.only(left: 14),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 1.0),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        'No.of reps  :      ',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Expanded(
-                        child: TextField(
-                          controller: repsController,
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                            hintText: '12',
-                          ),
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 52,
-                  margin:
-                      EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
-                  padding: EdgeInsets.only(left: 14),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 1.0),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Time           :',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 40,
-                      ),
-                      Expanded(
-                        child: TextField(
-                          controller: timeController,
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                            hintText: '20',
-                          ),
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 170),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: updateExerciseDetails,
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        backgroundColor: Color.fromARGB(255, 227, 189, 1),
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 12,
-                          horizontal: 50.0,
-                        ),
-                      ),
-                      child: Text(
-                        'Update',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                  Container(
+                    height: 52,
+                    margin:
+                        EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
+                    padding: EdgeInsets.only(left: 14),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white, width: 1.0),
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                    SizedBox(width: 15),
-                    ElevatedButton(
-                      onPressed: deleteExercise,
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        backgroundColor: Colors.red,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          'No.of Sets  :       ',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
                         ),
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 12,
-                          horizontal: 50.0,
+                        Expanded(
+                          child: TextField(
+                            controller: setsController,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              hintText: '12',
+                            ),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 52,
+                    margin:
+                        EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
+                    padding: EdgeInsets.only(left: 14),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white, width: 1.0),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'No.of reps  :      ',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Expanded(
+                          child: TextField(
+                            controller: repsController,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              hintText: '12',
+                            ),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 52,
+                    margin:
+                        EdgeInsets.only(top: 5, bottom: 5, right: 30, left: 30),
+                    padding: EdgeInsets.only(left: 14),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white, width: 1.0),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Time           :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 40,
+                        ),
+                        Expanded(
+                          child: TextField(
+                            controller: timeController,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              hintText: '20',
+                            ),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 170),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: updateExerciseDetails,
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          backgroundColor: Color.fromARGB(255, 227, 189, 1),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 50.0,
+                          ),
+                        ),
+                        child: Text(
+                          'Update',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                      child: Text(
-                        'Delete',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      SizedBox(width: 15),
+                      ElevatedButton(
+                        onPressed: deleteExercise,
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          backgroundColor: Colors.red,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 50.0,
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                ),
-              ],
+                        child: Text(
+                          'Delete',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
