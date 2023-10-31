@@ -1,6 +1,7 @@
 ## FitnessSL 
 
 This is our UEE Project in 3rd Year 1st Semester.
+Initially, the "FitnessSL" project was created and added to a repository. Each group member subsequently established separate branches, where they individually implemented, committed, and pushed their modifications. To merge these contributions, a "dev" branch was created, and all project files were added to it, combining the work completed by each team member.
 
 - IT21377280 Rajapaksha C. S.
 - IT21379956 Hettiarachchi V.E
