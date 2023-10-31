@@ -69,37 +69,45 @@ class _EventListViewState extends State<EventListView> {
         children: [
           Image.asset(
             'images/home/dance.gif',
-            // width: 480,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 20),
           Expanded(
             child: ListView(
               children: <Widget>[
                 Padding(
-                  // padding: const EdgeInsets.all(16.0),
-                  padding: const EdgeInsets.symmetric(horizontal: 180.0),
-                  //const SizedBox(height: 10),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      ///when clicked on button page navigate to add event page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AddEventForm(),
+                  padding: const EdgeInsets.only(
+                      right: 100.0,
+                      left:
+                          150.0), // ajust the position of add event button horizontally
+                  child: Row(
+                    children: [
+                      Center(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            ///when clicked on button page navigate to add event page
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AddEventForm(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                Colors.orange, //background color of the button
+                            foregroundColor: Colors.black, //color of the text
+                            //width and height of the button
+                            minimumSize: const Size(10, 40),
+                            padding: const EdgeInsets.all(
+                                16), // Adjust padding as needed
+                          ),
+                          child: const Text(
+                            'Add Event',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          Colors.orange, //background color of the button
-                      foregroundColor: Colors.black, //color of the text
-                      //width and height of the button
-                      minimumSize: const Size(200, 40),
-                    ),
-                    child: const Text(
-                      'Add Event',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 ListView.builder(
@@ -145,86 +153,91 @@ class _EventListViewState extends State<EventListView> {
                                 ),
                               ],
                             ),
-                            trailing: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                ElevatedButton(
-                                  //icon: const Icon(Icons.edit),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        //builder: (context) => const EditEventForm(
-                                        //eventKey: '',
-                                        //),
-                                        builder: (context) => EditEventForm(
-                                          eventsId: event['key'],
+                            trailing: Container(
+                              //height: 10,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => EditEventForm(
+                                            eventsId: event['key'],
+                                          ),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color.fromARGB(
-                                        255,
-                                        200,
-                                        175,
-                                        230), //background color of edit button
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color.fromARGB(
+                                          255,
+                                          200,
+                                          175,
+                                          230), //background color of edit button
+                                    ),
+                                    child: const Text(
+                                      'Update',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
                                   ),
-                                  child: const Text(
-                                    'Update',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    print(
-                                        "Delete button pressed for event key: $eventKey");
-                                    showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return AlertDialog(
-                                          title: const Text(
-                                            'Confirm Deletion',
-                                            style:
-                                                TextStyle(color: Colors.black),
-                                          ),
-                                          content: const Text(
-                                            'Are you sure you want to delete this event?',
-                                            style:
-                                                TextStyle(color: Colors.black),
-                                          ),
-                                          actions: <Widget>[
-                                            TextButton(
-                                              child: const Text('Cancel'),
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                            TextButton(
-                                              child: const Text('Delete'),
-                                              onPressed: () {
-                                                deleteEvent(event['key']);
-                                                // Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ],
+                                  const SizedBox(height: 10),
+                                  Padding(
+                                    //   padding: const EdgeInsets.only(
+                                    //       right: 10.0, left: 10.0),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10),
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        print(
+                                            "Delete button pressed for event key: $eventKey");
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: const Text(
+                                                'Confirm Deletion',
+                                                style: TextStyle(
+                                                    color: Colors.black),
+                                              ),
+                                              content: const Text(
+                                                'Are you sure you want to delete this event?',
+                                                style: TextStyle(
+                                                    color: Colors.black),
+                                              ),
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  child: const Text('Cancel'),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                ),
+                                                TextButton(
+                                                  child: const Text('Delete'),
+                                                  onPressed: () {
+                                                    deleteEvent(event['key']);
+                                                    // Navigator.of(context).pop();
+                                                  },
+                                                ),
+                                              ],
+                                            );
+                                          },
                                         );
                                       },
-                                    );
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color.fromARGB(
-                                        255,
-                                        238,
-                                        119,
-                                        119), //background color of edit button
-                                    minimumSize: const Size(85,
-                                        40), // Increase the width and height of the button
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: const Color.fromARGB(
+                                            255,
+                                            238,
+                                            119,
+                                            119), //background color of edit button
+                                        minimumSize: const Size(85,
+                                            40), // Increase the width and height of the button
+                                      ),
+                                      child: const Text('Delete'),
+                                    ),
                                   ),
-                                  child: const Text('Delete'),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),

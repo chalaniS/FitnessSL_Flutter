@@ -139,7 +139,7 @@ class _AddEventFormState extends State<AddEventForm> {
               ),
               const SizedBox(height: 20),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   ElevatedButton(
                     onPressed: () {
@@ -147,7 +147,7 @@ class _AddEventFormState extends State<AddEventForm> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 194, 190, 185),
-                      fixedSize: const Size(200, 40),
+                      fixedSize: const Size(120, 40),
                     ),
                     child: const Text(
                       'Cancel',
@@ -172,7 +172,7 @@ class _AddEventFormState extends State<AddEventForm> {
 
                     style: ElevatedButton.styleFrom(
                       primary: Colors.orange,
-                      fixedSize: const Size(200, 40),
+                      fixedSize: const Size(120, 40),
                     ),
 
                     child: const Text(

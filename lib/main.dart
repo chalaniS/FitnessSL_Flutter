@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
 
       home: AdminHomepage(),
 
-      // home: UserEventListView(), // user side
+      //home: UserEventListView(), // user side
     );
   }
 }
