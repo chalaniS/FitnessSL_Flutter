@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class EditEventForm extends StatefulWidget {
-  final String eventKey;
+  final String eventsId;
 
-  const EditEventForm({Key? key, required this.eventKey}) : super(key: key);
+  const EditEventForm({super.key, required this.eventsId});
+  // Use objectId instead of eventKey
 
   @override
   _EditEventFormState createState() => _EditEventFormState();
@@ -14,6 +15,7 @@ class EditEventForm extends StatefulWidget {
 class _EditEventFormState extends State<EditEventForm> {
   final DatabaseReference databaseReference =
       FirebaseDatabase.instance.reference().child('events');
+
   final TextEditingController eventNameController = TextEditingController();
   String selectedCategory = 'Mental Health';
   String selectedAgeGap = '18-25';
@@ -24,15 +26,20 @@ class _EditEventFormState extends State<EditEventForm> {
   List<String> categories = ['Mental Health', 'Physical Health'];
   List<String> ageGaps = ['18-25', '25-35', '35-50', '50-75'];
 
-  @override
   void initState() {
     super.initState();
-    loadEventData();
+    if (widget.eventsId.isNotEmpty) {
+      loadEventData(widget.eventsId); // Load data using objectId
+    }
   }
 
-  Future<void> loadEventData() async {
+  Future<void> loadEventData(String objectId) async {
+    // Use objectId in the path to fetch the event data
+
+    print(objectId);
+
     DataSnapshot dataSnapshot =
-        await databaseReference.child(widget.eventKey).once() as DataSnapshot;
+        await databaseReference.child(objectId).once() as DataSnapshot;
 
     if (dataSnapshot.value != null) {
       Map<dynamic, dynamic>? event =
@@ -185,7 +192,6 @@ class _EditEventFormState extends State<EditEventForm> {
                   ElevatedButton(
                     onPressed: () {
                       _updateEvent();
-                      // Navigator.pop(context);
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) =>
@@ -280,16 +286,9 @@ class _EditEventFormState extends State<EditEventForm> {
       "time": time,
     };
 
-    databaseReference.child(widget.eventKey).update(eventData);
+    databaseReference.child(widget.eventsId).update(eventData);
 
     eventNameController.clear();
     descriptionController.clear();
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: EditEventForm(
-        eventKey: "your_event_key_here"), // Replace with the actual event key
-  ));
 }

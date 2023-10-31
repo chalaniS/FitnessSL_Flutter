@@ -44,15 +44,10 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       //home: HomePage(),
-      //home: const AddEventForm(),
-      //home: AdminHomepage(),
-      // home: EditEventForm(
-      //   eventKey: '',
-      // ), //admin side
-      home: UserEventListView(), // user side
-      // home: EventDetailPage(
-      //   eventData: const {},
-      // ),
+
+      home: AdminHomepage(),
+
+      // home: UserEventListView(), // user side
     );
   }
 }
